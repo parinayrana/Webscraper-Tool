@@ -33,9 +33,9 @@ def clean_body_content(body_content):
     soup = BeautifulSoup(body_content, "html.parser" )
 
     for script_or_style in soup(["script", "style"]):
-        script_or_style.extract()
+        script_or_style.extract()   #getting rid of the style and script tags 
 
-    cleaned_content = soup.get_text(separator="\n")
-    cleaned_content = "\n".join(line.strip() for line in cleaned_content.splitlines() if line.strip())
+    cleaned_content = soup.get_text(separator="\n")  #getting all of the text and separating it by a new line
+    cleaned_content = "\n".join(line.strip() for line in cleaned_content.splitlines() if line.strip())  # to remove empty strings
 
     return cleaned_content
